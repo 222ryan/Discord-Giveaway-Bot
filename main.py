@@ -3,6 +3,7 @@ from discord.ext import commands
 import asyncio
 import random
 from ruamel.yaml import YAML
+from datetime import datetime
 
 yaml = YAML()
 
@@ -10,6 +11,19 @@ with open("./config.yml", "r", encoding="utf-8") as file:
     config = yaml.load(file)
 
 client = commands.Bot(command_prefix=config['prefix'], intents=discord.Intents.all(), case_insensitive=True)
+
+
+def __init__(self):
+    self.bot = discord.Client
+
+
+@client.event
+async def on_ready():
+    print('------')
+    print('Logged in as:')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
 
 
 def convert(time):
@@ -70,7 +84,7 @@ async def giveaway(ctx):
         await ctx.send(embed=embed)
         return
     elif time == -2:
-        mbed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description=":x: Time unit **must** be an integer")
+        embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description=":x: Time unit **must** be an integer")
         await ctx.send(embed=embed)
         return
     prize = answers[2]
@@ -80,16 +94,17 @@ async def giveaway(ctx):
     embed.add_field(name="Time:", value=f"{answers[1]}")
     await ctx.send(embed=embed)
 
-    embed = discord.Embed(title=":tada: **GIVEAWAY**")
-    embed.add_field(name="Prize", value=prize)
-    embed.add_field(name="Ends In:", value=answers[1])
+    embed = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description="React to enter this giveaway!")
+    embed.add_field(name="Lasts:", value=answers[1])
+    embed.add_field(name=f"Hosted By:", value=ctx.author.mention)
+    embed.set_footer(text=f"{datetime.now()}")
     msg = await channel.send(embed=embed)
 
     await msg.add_reaction("🎉")
     await asyncio.sleep(time)
 
-    msg = await ctx.channel.fetch_message(msg.id)
-    users = await msg.reactions[0].users().flatten()
+    new_msg = await channel.fetch_message(msg.id)
+    users = await new_msg.reactions[0].users().flatten()
     users.pop(users.index(client.user))
 
     winner = random.choice(users)
@@ -99,19 +114,19 @@ async def giveaway(ctx):
 
 @client.command()
 @commands.has_role(config['giveaway_role'])
-async def reroll(ctx, channel : discord.TextChannel, id_ : int):
+async def reroll(ctx, channel: discord.TextChannel, id_: int):
     try:
-        msg = await channel.fetch_message(id_)
+        new_msg = await channel.fetch_message(id_)
     except:
         prefix = config['prefix']
-        await ctx.send(f"Incorrect usage! Do: `{prefix}reroll <Channel Name. Example: #general / general> <Giveaway messageID>` ")
+        await ctx.send(f"Incorrect usage! Do: `{prefix}reroll <Channel Name - Must be the channel which previously held the giveaway> <messageID of the giveaway message>` ")
 
-    users = await msg.reactions[0].users().flatten()
+    users = await new_msg.reactions[0].users().flatten()
     users.pop(users.index(client.user))
 
     winner = random.choice(users)
 
-    await channel.send(f":tada: Congratulations! {winner.mention} won!")
+    await ctx.channel.send(f":tada: Congratulations! The new winner is: {winner.mention}!")
 
 
 client.run(config['token'])
