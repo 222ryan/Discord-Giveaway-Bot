@@ -13,9 +13,11 @@
 
 <h3>Setup Wizard</h3> 
 	 <pre><p>Giveaway Cord comes with an easy to use Giveaway Setup Wizard</p></pre>
+	 
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811135955959808030/unknown.png)
 
 <h3>Reroll Command</h3> 
 	 <pre><p>If a user doesn't claim there reward, or for any other reason, you can reroll the winner.</p></pre>
+	 
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811137233817829386/unknown.png)
 
