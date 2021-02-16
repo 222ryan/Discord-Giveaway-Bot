@@ -6,3 +6,12 @@ prefix: "!"
 
 # The role which can run Giveaway commands
 giveaway_role: "Giveaway"
+
+# Set what the bot is currently playing
+bot_status_text: "🎉 | Giveaways"
+
+# IDLE, DND, ONLINE, OFFLINE
+bot_activity: "ONLINE"
+
+# True/False - <prefix>help command
+help_command: True
