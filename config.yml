@@ -15,3 +15,6 @@ bot_activity: "ONLINE"
 
 # True/False - <prefix>help command
 help_command: True
+
+# How many seconds until the setup cancels due to no information being sent
+setup_timeout: 15.0
