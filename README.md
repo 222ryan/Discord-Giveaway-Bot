@@ -23,6 +23,7 @@
 
 <h3>customizability</h3> 
 	 <pre><p>Giveaway Cord allows you customise it in many different ways.</p></pre>
+	 
 ![](https://cdn.discordapp.com/attachments/809363133713874944/811192075659640873/unknown.png)
 
 
