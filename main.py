@@ -34,8 +34,8 @@ async def on_ready():
 
 
 def convert(time):
-    pos = ["s", "m", "h", "d"]
-    time_dict = {"s": 1, "m": 60, "h": 3600, "d": 3600 * 24}
+    pos = ["s", "m", "h", "d", "w"]
+    time_dict = {"s": 1, "m": 60, "h": 3600, "d": 3600 * 24, "w": 3600 * 24 * 7}
     unit = time[-1]
 
     if unit not in pos:
@@ -55,7 +55,7 @@ async def giveaway(ctx):
     await ctx.send(embed=embed)
 
     embedq1 = discord.Embed(title=":star: | QUESTION 1", description="Which channel should it be hosted in?")
-    embedq2 = discord.Embed(title=":star: | QUESTION 2", description="How long should the giveaway last? ``<s|m|h|d>``")
+    embedq2 = discord.Embed(title=":star: | QUESTION 2", description="How long should the giveaway last? ``<s|m|h|d|w>``")
     embedq3 = discord.Embed(title=":star: | QUESTION 3", description="What is the prize?")
 
     questions = [embedq1,
