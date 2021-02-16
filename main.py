@@ -143,7 +143,7 @@ async def reroll(ctx, channel: discord.TextChannel, id_: int):
 
     winner = random.choice(users)
 
-    await ctx.channel.send(f":tada: The mew winner is: {winner.mention}!")
+    await ctx.channel.send(f":tada: The new winner is: {winner.mention}!")
 
 
 @client.command()
