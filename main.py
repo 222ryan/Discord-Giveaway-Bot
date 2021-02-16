@@ -51,12 +51,16 @@ def convert(time):
 @client.command()
 @commands.has_role(config['giveaway_role'])
 async def giveaway(ctx):
-    embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description="Please answer the questions provided!")
+    embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description="Please answer the provided questions!")
     await ctx.send(embed=embed)
 
-    questions = [":star:: Which channel should it be hosted in?",
-                 ":star:: How long should the giveaway last? ``<s|m|h|d>``",
-                 ":star:: What is the prize?"]
+    embedq1 = discord.Embed(title=":star: | QUESTION 1", description="Which channel should it be hosted in?")
+    embedq2 = discord.Embed(title=":star: | QUESTION 2", description="How long should the giveaway last? ``<s|m|h|d>``")
+    embedq3 = discord.Embed(title=":star: | QUESTION 3", description="What is the prize?")
+
+    questions = [embedq1,
+                 embedq2,
+                 embedq3]
 
     answers = []
 
@@ -64,7 +68,7 @@ async def giveaway(ctx):
         return m.author == ctx.author and m.channel == ctx.channel
 
     for i in questions:
-        await ctx.send(i)
+        await ctx.send(embed=i)
 
         try:
             msg = await client.wait_for('message', timeout=config['setup_timeout'], check=check)
@@ -136,7 +140,7 @@ async def reroll(ctx, channel: discord.TextChannel, id_: int):
 
     winner = random.choice(users)
 
-    await ctx.channel.send(f":tada: Congratulations! The new winner is: {winner.mention}!")
+    await ctx.channel.send(f":tada: The mew winner is: {winner.mention}!")
 
 
 @client.command()
