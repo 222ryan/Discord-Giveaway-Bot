@@ -1,0 +1,8 @@
+# Your discord bots application token. NOTE: Don't share with anyone!
+token: 
+
+# Discord bots command prefix
+prefix: "!"
+
+# The role which can run Giveaway commands
+giveaway_role: "Giveaway"
