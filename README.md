@@ -6,8 +6,8 @@
 	
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811106405079318548/MOSHED-2021-2-16-5-27-7.gif)
 <p> Giveaway Cord lets you customise the bot in the 'config.yml' file. </p
-<p> Some of these include the bots <b>prefix</b> and <b>Giveaway</b> role.</p>
-<p> More are being added reguarly! </p>
+<p> Some of these include the bots <b>React Emoji</b> and <b>Giveaway</b> role.</p>
+<p> Theres a lot more options and more are being added reguarly! </p>
 
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811106322182307860/MOSHED-2021-2-16-5-26-42.gif)
 
@@ -20,4 +20,10 @@
 	 <pre><p>If a user doesn't claim there reward, or for any other reason, you can reroll the winner.</p></pre>
 	 
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811137233817829386/unknown.png)
+
+<h3>customizability</h3> 
+	 <pre><p>Giveaway Cord allows you customise it in many different ways.</p></pre>
+![](https://cdn.discordapp.com/attachments/809363133713874944/811192075659640873/unknown.png)
+
+
 
