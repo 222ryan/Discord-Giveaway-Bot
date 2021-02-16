@@ -11,10 +11,16 @@ giveaway_role: "Giveaway"
 bot_status_text: "🎉 | Giveaways"
 
 # IDLE, DND, ONLINE, OFFLINE
-bot_activity: "ONLINE"
+bot_activity: "DND"
 
 # True/False - <prefix>help command
 help_command: True
 
 # How many seconds until the setup cancels due to no information being sent
 setup_timeout: 15.0
+
+# The emoji the user has to react with to enter the giveaway
+react_emoji: "🎉"
+
+# True/False - Sends a message with a ping letting the winner know that they won.
+ping_winner_message: True
