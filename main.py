@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 import random
+from discord.ext.commands import CommandNotFound
 from ruamel.yaml import YAML
 from datetime import datetime
 
@@ -11,19 +12,26 @@ with open("./config.yml", "r", encoding="utf-8") as file:
     config = yaml.load(file)
 
 client = commands.Bot(command_prefix=config['prefix'], intents=discord.Intents.all(), case_insensitive=True)
+client.remove_command('help')
 
 
-def __init__(self):
-    self.bot = discord.Client
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, CommandNotFound):
+        return
+    raise error
 
 
 @client.event
 async def on_ready():
     print('------')
-    print('Logged in as:')
-    print(client.user.name)
-    print(client.user.id)
+    print('Online! Details:')
+    print(f"Bot Username: {client.user.name}")
+    print(f"BotID: {client.user.id}")
     print('------')
+    configactivity = config['bot_activity']
+    activity = discord.Game(name=config['bot_status_text'])
+    await client.change_presence(status=configactivity, activity=activity)
 
 
 def convert(time):
@@ -127,6 +135,20 @@ async def reroll(ctx, channel: discord.TextChannel, id_: int):
     winner = random.choice(users)
 
     await ctx.channel.send(f":tada: Congratulations! The new winner is: {winner.mention}!")
+
+
+@client.command()
+async def help(ctx):
+    if config['help_command'] == True:
+        prefix = config['prefix']
+        embed = discord.Embed(title="**HELP PAGE | :book:**", description="Commands & Bot Settings:")
+        embed.add_field(name="Prefix:", value=f"``{prefix}``")
+        embed.add_field(name="Giveaway:", value=f"``{prefix}giveaway`` *Starts the Setup Wizard*")
+        embed.add_field(name="Reroll:", value=f"``{prefix}reroll <channel> <messageid>`` *Rerolls a winner*")
+        embed.set_thumbnail(url=ctx.guild.icon_url)
+        await ctx.channel.send(embed=embed)
+    else:
+        return
 
 
 client.run(config['token'])
