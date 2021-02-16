@@ -4,7 +4,6 @@ import asyncio
 import random
 from discord.ext.commands import CommandNotFound
 from ruamel.yaml import YAML
-from datetime import datetime
 
 yaml = YAML()
 
@@ -96,18 +95,18 @@ async def giveaway(ctx):
         return
     prize = answers[2]
 
-    embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description="Okay, all set.")
+    embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description="Okay, all set. The Giveaway will now begin!")
     embed.add_field(name="Hosted Channel:", value=f"{channel.mention}")
     embed.add_field(name="Time:", value=f"{answers[1]}")
+    embed.add_field(name="Prize:", value=prize)
     await ctx.send(embed=embed)
 
     embed = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description="React to enter this giveaway!")
     embed.add_field(name="Lasts:", value=answers[1])
     embed.add_field(name=f"Hosted By:", value=ctx.author.mention)
-    embed.set_footer(text=f"{datetime.now()}")
     msg = await channel.send(embed=embed)
 
-    await msg.add_reaction("🎉")
+    await msg.add_reaction(config['react_emoji'])
     await asyncio.sleep(time)
 
     new_msg = await channel.fetch_message(msg.id)
@@ -115,8 +114,12 @@ async def giveaway(ctx):
     users.pop(users.index(client.user))
 
     winner = random.choice(users)
+    if config['ping_winner_message'] == True:
+        await channel.send(f":tada: Congratulations! {winner.mention} won: **{prize}**!")
 
-    await channel.send(f":tada: Congratulations! {winner.mention} won: **{prize}**!")
+    embed2 = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description=f":trophy: **Winner:** {winner.mention}")
+    embed2.set_footer(text="Giveaway has ended")
+    await msg.edit(embed=embed2)
 
 
 @client.command()
