@@ -5,9 +5,8 @@
 <p> *No Database is required!* </p>
 	
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811106405079318548/MOSHED-2021-2-16-5-27-7.gif)
-
-
-
-
+<p> Giveaway Cord lets you customise the bot in the 'config.yml' file. </p
+<p> Some of these include the bots <b>prefix</b> and <b>Giveaway</b> role.</p>
+<p> More are being added reguarly! </p>
 
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811106322182307860/MOSHED-2021-2-16-5-26-42.gif)
