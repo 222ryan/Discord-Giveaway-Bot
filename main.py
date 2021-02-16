@@ -104,7 +104,8 @@ async def giveaway(ctx):
     embed.add_field(name="Time:", value=f"{answers[1]}")
     embed.add_field(name="Prize:", value=prize)
     await ctx.send(embed=embed)
-
+    print(f"New Giveaway Started! Hosted By: {ctx.author.mention} | Hosted Channel: {channel.mention} | Time: {answers[1]} | Prize: {prize}")
+    print("------")
     embed = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description="React to enter this giveaway!")
     embed.add_field(name="Lasts:", value=answers[1])
     embed.add_field(name=f"Hosted By:", value=ctx.author.mention)
@@ -120,6 +121,8 @@ async def giveaway(ctx):
     winner = random.choice(users)
     if config['ping_winner_message'] == True:
         await channel.send(f":tada: Congratulations! {winner.mention} won: **{prize}**!")
+        print(f"New Winner! User: {winner.mention} | Prize: {prize}")
+        print("------")
 
     embed2 = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description=f":trophy: **Winner:** {winner.mention}")
     embed2.set_footer(text="Giveaway has ended")
