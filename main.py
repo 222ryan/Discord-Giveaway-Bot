@@ -68,7 +68,7 @@ async def giveaway(ctx):
         await ctx.send(i)
 
         try:
-            msg = await client.wait_for('message', timeout=15.0, check=check)
+            msg = await client.wait_for('message', timeout=config['setup_timeout'], check=check)
         except asyncio.TimeoutError:
             embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description=":x: You didn't answer in time!")
             await ctx.send(embed=embed)
@@ -80,7 +80,6 @@ async def giveaway(ctx):
         c_id = int(answers[0][2: -1])
     except:
         embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description=":x: You didn't specify a channel correctly!")
-        await ctx.send(embed=embed)
         await ctx.send(embed=embed)
         return
 
