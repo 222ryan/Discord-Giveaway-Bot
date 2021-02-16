@@ -8,6 +8,7 @@
 <p> Giveaway Cord lets you customise the bot in the 'config.yml' file. </p
 <p> Some of these include the bots <b>React Emoji</b> and <b>Giveaway</b> role.</p>
 <p> Theres a lot more options and more are being added reguarly! </p>
+<p> There is also only 3 commands at the moment. Giveaway, reroll and help.
 
 ![](https://cdn.discordapp.com/attachments/809363224663031829/811106322182307860/MOSHED-2021-2-16-5-26-42.gif)
 
