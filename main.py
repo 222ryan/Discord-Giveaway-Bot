@@ -106,7 +106,7 @@ async def giveaway(ctx):
     await ctx.send(embed=embed)
     print(f"New Giveaway Started! Hosted By: {ctx.author.mention} | Hosted Channel: {channel.mention} | Time: {answers[1]} | Prize: {prize}")
     print("------")
-    embed = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description="React to enter this giveaway!")
+    embed = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description=f"React With {config['react_emoji']} To Enter!")
     embed.add_field(name="Lasts:", value=answers[1])
     embed.add_field(name=f"Hosted By:", value=ctx.author.mention)
     msg = await channel.send(embed=embed)
@@ -125,7 +125,7 @@ async def giveaway(ctx):
         print("------")
 
     embed2 = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description=f":trophy: **Winner:** {winner.mention}")
-    embed2.set_footer(text="Giveaway has ended")
+    embed2.set_footer(text="Giveaway Has Ended")
     await msg.edit(embed=embed2)
 
 
