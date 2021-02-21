@@ -1,0 +1,4 @@
+discord.py
+asyincio
+random
+ruamel.yaml
