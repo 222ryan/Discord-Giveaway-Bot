@@ -28,6 +28,8 @@ async def on_ready():
     print(f"Bot Username: {client.user.name}")
     print(f"BotID: {client.user.id}")
     print('------')
+    for command in client.commands:
+        print(f"Loaded: {command}")
     configactivity = config['bot_activity']
     activity = discord.Game(name=config['bot_status_text'])
     await client.change_presence(status=configactivity, activity=activity)
