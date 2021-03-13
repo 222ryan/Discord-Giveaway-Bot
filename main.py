@@ -53,12 +53,14 @@ def convert(time):
 @client.command()
 @commands.has_role(config['giveaway_role'])
 async def giveaway(ctx):
-    embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description="Please answer the provided questions!")
-    await ctx.send(embed=embed)
 
-    embedq1 = discord.Embed(title=":star: | QUESTION 1", description="Which channel should it be hosted in?")
-    embedq2 = discord.Embed(title=":star: | QUESTION 2", description="How long should the giveaway last? ``<s|m|h|d|w>``")
-    embedq3 = discord.Embed(title=":star: | QUESTION 3", description="What is the prize?")
+    timeout = config["setup_timeout"]
+    embedq1 = discord.Embed(title=":tada: | SETUP WIZARD", description=f"Welcome to the Setup Wizard. Answer the following questions within ``{timeout}`` Seconds!")
+    embedq1.add_field(name=":star: | Question 1", value="Where should we host the Giveaway?\n\n **Example**: ``#General``")
+    embedq2 = discord.Embed(title=":tada: | SETUP WIZARD", description="Great! Let's move onto the next question.")
+    embedq2.add_field(name=":star: | Question 2", value="How long should it last? ``<s|m|h|d|w>``\n\n **Example**:\n ``1d``")
+    embedq3 = discord.Embed(title=":tada: | SETUP WIZARD", description="Awesome. You've made it to the last question!")
+    embedq3.add_field(name=":star: | Question 2", value="What is the prize the winner will receive?\n\n **Example**:\n ``NITRO``")
 
     questions = [embedq1,
                  embedq2,
@@ -96,7 +98,7 @@ async def giveaway(ctx):
         await ctx.send(embed=embed)
         return
     elif time == -2:
-        embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description=":x: Time unit **must** be an integer")
+        embed = discord.Embed(title=":tada: **Giveaway Setup Wizard**", description=":x: Time unit **MUST** be an integer")
         await ctx.send(embed=embed)
         return
     prize = answers[2]
@@ -108,7 +110,7 @@ async def giveaway(ctx):
     await ctx.send(embed=embed)
     print(f"New Giveaway Started! Hosted By: {ctx.author.mention} | Hosted Channel: {channel.mention} | Time: {answers[1]} | Prize: {prize}")
     print("------")
-    embed = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description=f"React With {config['react_emoji']} To Enter!")
+    embed = discord.Embed(title=f":tada: **GIVEAWAY FOR: {prize}**", description=f"React With {config['react_emoji']} To Participate!")
     embed.add_field(name="Lasts:", value=answers[1])
     embed.add_field(name=f"Hosted By:", value=ctx.author.mention)
     msg = await channel.send(embed=embed)
