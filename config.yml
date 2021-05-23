@@ -1,6 +1,3 @@
-# Your discord bots application token. NOTE: Don't share with anyone!
-token: 
-
 # Discord bots command prefix
 prefix: "!"
 
@@ -11,7 +8,7 @@ giveaway_role: "Giveaway"
 bot_status_text: "🎉 | Giveaways"
 
 # IDLE, DND, ONLINE, OFFLINE
-bot_activity: dnd
+bot_activity: idle
 
 # True/False - <prefix>help command
 help_command: True
@@ -19,7 +16,7 @@ help_command: True
 # How many seconds until the setup cancels due to no information being sent
 setup_timeout: 15.0
 
-# The emoji the user has to react with to enter the giveaway
+# The emoji the user has to react with to enter the giveaway - Unicode
 react_emoji: "🎉"
 
 # True/False - Sends a message with a ping letting the winner know that they won.
