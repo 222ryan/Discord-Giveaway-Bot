@@ -19,7 +19,7 @@
 <h3>Reroll Command</h3> 
 	 <pre><p>If a user doesn't claim there reward, or for any other reason, you can reroll the winner.</p></pre>
 	 
-![](![image](https://user-images.githubusercontent.com/63556081/119244487-26180280-bb69-11eb-8da5-2e19c06c4a1f.png))
+![](https://cdn.discordapp.com/attachments/845772732582330368/845825884225404948/unknown.png)
 
 <h3>customizability</h3> 
 	 <pre><p>Giveaway Cord allows you customise it in many different ways.</p></pre>
