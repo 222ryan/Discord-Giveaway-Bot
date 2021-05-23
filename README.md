@@ -10,16 +10,16 @@
 <p> Theres a lot more options and more are being added reguarly! </p>
 <p> There is also only 3 commands at the moment. Giveaway, reroll and help.
 
-![](https://cdn.discordapp.com/attachments/845762704907960323/845825393676124210/unknown.png)
+![](https://cdn.discordapp.com/attachments/845762704907960323/845824942825930752/MODERN_LEVELS_11.png)
 <h3>Setup Wizard</h3> 
 	 <pre><p>Giveaway Cord comes with an easy to use Giveaway Setup Wizard</p></pre>
 	 
-![](https://cdn.discordapp.com/attachments/809363224663031829/811135955959808030/unknown.png)
+![](https://cdn.discordapp.com/attachments/845762704907960323/845825393676124210/unknown.png)
 
 <h3>Reroll Command</h3> 
 	 <pre><p>If a user doesn't claim there reward, or for any other reason, you can reroll the winner.</p></pre>
 	 
-![](https://cdn.discordapp.com/attachments/809363224663031829/811137233817829386/unknown.png)
+![](![image](https://user-images.githubusercontent.com/63556081/119244487-26180280-bb69-11eb-8da5-2e19c06c4a1f.png))
 
 <h3>customizability</h3> 
 	 <pre><p>Giveaway Cord allows you customise it in many different ways.</p></pre>
