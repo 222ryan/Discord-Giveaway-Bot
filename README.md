@@ -10,7 +10,7 @@
 <p> Theres a lot more options and more are being added reguarly! </p>
 <p> There is also only 3 commands at the moment. Giveaway, reroll and help.
 
-![](https://cdn.discordapp.com/attachments/845762704907960323/845824942825930752/MODERN_LEVELS_11.png)
+![](https://cdn.discordapp.com/attachments/845762704907960323/845825393676124210/unknown.png)
 <h3>Setup Wizard</h3> 
 	 <pre><p>Giveaway Cord comes with an easy to use Giveaway Setup Wizard</p></pre>
 	 
