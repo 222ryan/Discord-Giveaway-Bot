@@ -18,7 +18,7 @@ class reroll(commands.Cog):
     @commands.has_role(config['giveaway_role'])
     async def giveaway(self, ctx):
         timeout = config["setup_timeout"]
-        embedq1 = discord.Embed(title=":gift: | SETUP WIZARD",
+        embedq1 = discord.Embed(title="<a:HyperTada:812709871291334666> | SETUP WIZARD",
                                 description=f"Welcome to the Setup Wizard. Answer the following questions within ``{timeout}`` Seconds!")
         embedq1.add_field(name=":star: | Question 1",
                           value="Where should we host the Giveaway?\n\n **Example**: ``#General``")
@@ -46,7 +46,7 @@ class reroll(commands.Cog):
             try:
                 msg = await self.client.wait_for('message', timeout=config['setup_timeout'], check=check)
             except asyncio.TimeoutError:
-                embed = discord.Embed(title=":gift: **Giveaway Setup Wizard**",
+                embed = discord.Embed(title="<a:HyperTada:812709871291334666> **Giveaway Setup Wizard**",
                                       description=":x: You didn't answer in time!")
                 await ctx.send(embed=embed)
                 return
@@ -56,7 +56,7 @@ class reroll(commands.Cog):
         try:
             c_id = int(answers[0][2: -1])
         except:
-            embed = discord.Embed(title=":gift: **Giveaway Setup Wizard**",
+            embed = discord.Embed(title="<a:HyperTada:812709871291334666> **Giveaway Setup Wizard**",
                                   description=":x: You didn't specify a channel correctly!")
             await ctx.send(embed=embed)
             return
@@ -65,18 +65,18 @@ class reroll(commands.Cog):
 
         time = convert(answers[1])
         if time == -1:
-            embed = discord.Embed(title=":gift: **Giveaway Setup Wizard**",
+            embed = discord.Embed(title="<a:HyperTada:812709871291334666> **Giveaway Setup Wizard**",
                                   description=":x: You didn't set a proper time unit!")
             await ctx.send(embed=embed)
             return
         elif time == -2:
-            embed = discord.Embed(title=":gift: **Giveaway Setup Wizard**",
+            embed = discord.Embed(title="<a:HyperTada:812709871291334666> **Giveaway Setup Wizard**",
                                   description=":x: Time unit **MUST** be an integer")
             await ctx.send(embed=embed)
             return
         prize = answers[2]
 
-        embed = discord.Embed(title=":gift: **Giveaway Setup Wizard**",
+        embed = discord.Embed(title="<a:HyperTada:812709871291334666> **Giveaway Setup Wizard**",
                               description="Okay, all set. The Giveaway will now begin!")
         embed.add_field(name="Hosted Channel:", value=f"{channel.mention}")
         embed.add_field(name="Time:", value=f"{answers[1]}")
@@ -85,7 +85,7 @@ class reroll(commands.Cog):
         print(
             f"New Giveaway Started! Hosted By: {ctx.author.mention} | Hosted Channel: {channel.mention} | Time: {answers[1]} | Prize: {prize}")
         print("------")
-        embed = discord.Embed(title=f":gift: **GIVEAWAY FOR: {prize}**",
+        embed = discord.Embed(title=f"<a:HyperTada:812709871291334666> **GIVEAWAY FOR: {prize}**",
                               description=f"React With {config['react_emoji']} To Participate!")
         embed.add_field(name="Lasts:", value=answers[1])
         embed.add_field(name=f"Hosted By:", value=ctx.author.mention)
@@ -104,7 +104,7 @@ class reroll(commands.Cog):
             print(f"New Winner! User: {winner.mention} | Prize: {prize}")
             print("------")
 
-        embed2 = discord.Embed(title=f":gift: **GIVEAWAY FOR: {prize}**",
+        embed2 = discord.Embed(title=f"<a:HyperTada:812709871291334666> **GIVEAWAY FOR: {prize}**",
                                description=f":trophy: **Winner:** {winner.mention}")
         embed2.set_footer(text="Giveaway Has Ended")
         await msg.edit(embed=embed2)
